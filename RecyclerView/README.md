@@ -6,7 +6,8 @@ In ListView we have to use ViewHolder pattern(optional) for good performance. Bu
 
 Also, in ListView it is optional to uses ViewGroup containers but in RecyclerView, layout has to be inflated inside the container. This helps as shape of containers can be modified to get different types of list. RecyclerView list can be horigontal, vertical etc.
 
-To use RecyclerView we need to follow following steps :-
+To use RecyclerView we need to follow 6 steps which are explained in detail below :-
+
 
 1. Add RecyclerView support library to the gradle build file
 ```java
@@ -54,7 +55,8 @@ public class Course {
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
     android:orientation="vertical">
 
 
@@ -88,7 +90,7 @@ We have to implement three methods as follows -
     This is called when the layouts are first time created on the screen. Item layout is inflated inside the parent container and ViewHolder is created for this view, whose object needs to be returned.
 
   * public void onBindViewHolder(ViewHolder holder, int position)
-  
+
     This is called to bind our views with the data. method uses the view holder's position to determine what the contents should be. It gets the view holder of the layout item which populates data into the item through holder
 
 
@@ -101,4 +103,70 @@ We have to implement three methods as follows -
     The final code of adapter is as below.
 ```java
 
+
+public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder>{
+
+    private Context context;
+    private ArrayList<Course> courseList = new ArrayList<>();
+
+    public CourseAdapter(Context context, ArrayList<Course> courseList) {
+        this.context = context;
+        this.courseList = courseList;
+
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        //inflate has three parameters, layout to inflate, container in which it needs to be inflated
+        // attach to root layout, should be false
+        View v = LayoutInflater.from(context).inflate(R.layout.list_item_course, parent, false);
+        return new ViewHolder(v);  // returns a viewHolder object
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        //Get the desired data
+        String courseName = courseList.get(position).getName();
+        String instructorName = courseList.get(position).getInstructor();
+        int batchStrength = courseList.get(position).getBatchStrength();
+
+        //Binding the data with help of viewholder
+        holder.tvCourseName.setText(courseName);
+        holder.tvInstructorName.setText(instructorName);
+        holder.tvBatchStrength.setText(String.valueOf(batchStrength));
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return courseList.size();
+    }
+
+    // Provide a direct reference to each of the views within a data item
+    public class ViewHolder extends RecyclerView.ViewHolder{
+
+
+        TextView tvCourseName, tvInstructorName, tvBatchStrength;
+
+        // findviewbyid is costly operation so we do it only once for each view which are recycled
+        public ViewHolder(View itemView) {
+            super(itemView);
+
+            tvCourseName = itemView.findViewById(R.id.tvCourseName);
+            tvInstructorName = itemView.findViewById(R.id.tvInstName);
+            tvBatchStrength = itemView.findViewById(R.id.tvBatchStrength);
+        }
+    }
+}
+
+```
+6. Finally we need to set Adapter on RecyclerView in Activtiy like below
+```java
+
+RecyclerView rvCourseList = findViewById(R.id.rvCourseList);
+// Linear Layout Manager for item =s in row form
+rvCourseList.setLayoutManager(new LinearLayoutManager(this));
+//getCourseList gives ArrayList of our model class Courses
+rvCourseList.setAdapter(new CourseAdapter(this, getCourseList()));
 ```
