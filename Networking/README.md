@@ -1,16 +1,15 @@
 # Android Networking
 
-Android performs network related operations on the background thread.
 
-All the network requests have to be performed over a protocol. Like it can be over HTTP and this defines the format of its payload. FTP will have a FTP payload and will not be able to read HTTP payload. Hence, it is important to define a protocol in any network request. We will be using HTTP request.
 
-We need a protocol client to handle a protocol. We will need to set up an HTTP protocol client to send HTTP requests.
+All the network requests have to be performed over a protocol. It can be over HTTP and this defines the format of its payload. FTP will have a FTP payload and will not be able to read HTTP payload. Hence, it is important to define a protocol in any network request. We will be using HTTP request.
 
-Response from the server take variable time and UI thread can't be blocked. So we use AsyncTask to send the network request in the background.
+We need a protocol client to handle a protocol. We will set up an HTTP protocol client to send HTTP requests. This request are sent and recieved through streams. Next, we understand what aactually streams are.
 
-**Stream**-> We require streams to read and write data to the files. Whenever if our program has to get data from an external source it is Input Stream. Whenever our program has to write data, it is output stream. The streams are always seen w.r.t to your program.
 
-Now the main question is, why do we need streams? Why can't we simply read all data at once?
+**Stream**-> We require streams to read and write data to the files from your program. Whenever if our program has to get data from an external source it is Input Stream. Whenever our program has to write data, it is output stream. The streams are always seen w.r.t to your program.
+
+Now the main question is, why do we need streams? Why can't we just simply read all data at once?
 There are basically two reasons
 1. The speed of the data to your program will be different from the rate at which your program can read. To synchronize this data speed we need streams.
 
@@ -18,7 +17,9 @@ There are basically two reasons
 
 We also need a buffer to store the file in a local buffer, which when full, data is read from it.
 
-So we create InputStream to read from the network and to read data from stream we will use buffered reader.
+Android performs network related operations on the background thread. Response from the server take variable time and UI thread can't be blocked. So we use AsyncTask to send the network request in the background.
+
+So in Android we will be using all of the above for the network request. We open a URL connection. It gives a InputStream to read bytes from the network and to read data from Stream we use buffered reader.
 
 To make a network request in the app, we need to add permission in manifest file.
 ```xml
