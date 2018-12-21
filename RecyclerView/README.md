@@ -170,3 +170,7 @@ rvCourseList.setLayoutManager(new LinearLayoutManager(this));
 //getCourseList gives ArrayList of our model class Courses
 rvCourseList.setAdapter(new CourseAdapter(this, getCourseList()));
 ```
+
+Screen will look like as
+
+![](./img/recycle.png)

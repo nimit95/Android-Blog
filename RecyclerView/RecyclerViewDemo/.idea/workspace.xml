@@ -37,7 +37,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nimit/recyclerviewdemo/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="364">
-              <caret line="19" column="74" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="19" selection-end-column="74" />
+              <caret line="19" column="74" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="19" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -60,7 +60,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_item_course.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="76">
-              <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="32" />
+              <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -2486,7 +2486,7 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_item_course.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
-          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="32" />
+          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -2497,7 +2497,7 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nimit/recyclerviewdemo/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
-          <caret line="19" column="74" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="19" selection-end-column="74" />
+          <caret line="19" column="74" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="19" selection-end-column="74" />
           <folding />
         </state>
       </provider>
