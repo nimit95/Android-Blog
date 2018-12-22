@@ -1,8 +1,10 @@
 # RecyclerView
 
-RecyclerView is used to show list item on the Android. It is similar to ListView in terms of layout on the screen. But has a major difference in the way both are implemented.
+Many apps need to display user-interface elements based on large data sets, or data that frequently changes. For example, a music app might need to display information about thousands of albums, but only a dozen of those albums might be on-screen at a time. If the app created UI widgets for each of those albums, the app would end up using a lot of memory and storage, potentially making the app slow and crash-prone. On the other hand, if the app created UI widgets each time a new album scrolled onto the screen and destroyed the widgets when it scrolled off, that would also cause the app to run slowly, since creating UI objects is a resource-intensive operation.
 
-In ListView we have to use ViewHolder pattern(optional) for good performance. But RecyclerView enforces to recycle the views created on the screen. Like if 5 items are being displayed on your screen, then only 7 items will be in memory(one extra above and below the screen). When user scrolls, the views are recycled by binding item with different data.
+To address the above problem Recycler View is used to show list items on the Android. It is similar to ListView in terms of layout on the screen. But has a major difference in the way both are implemented.
+
+In ListView we have an option to use ViewHolder pattern for good performance. But RecyclerView enforces us to recycle the views created on the screen. Like if 5 items are being displayed on your screen, then only 7 items will be in the memory(one extra above and below the screen). When user scrolls, the views are recycled by binding item with different data.
 
 Also, in ListView it is optional to uses ViewGroup containers but in RecyclerView, the layout has to be inflated inside the container. This helps as the shape of the containers can be modified to get different types of list. The RecyclerView list can be horizontal, vertical etc.
 
@@ -83,7 +85,7 @@ public class Course {
 </LinearLayout>
 ```
 
-5. Now we make the RecyclerView adapter. We make a java class lets say CourseAdapter. We extend RecyclerView.Adapter but it needs a ViewHolder class. So inside CourseAdapter we create ViewHolder class which extends from RecyclerView.ViewHolder. Then send use ViewHolder class in our CourseAdapter class.
+5. Now we make the RecyclerView adapter. We make a java class lets say CourseAdapter. We extend RecyclerView.Adapter but it needs a ViewHolder class. So inside CourseAdapter, we create ViewHolder class which extends from RecyclerView.ViewHolder. Then send use ViewHolder class in our CourseAdapter class.
 We have to implement three methods as follows -
   * **public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)**
 
